@@ -1,0 +1,22 @@
+version: "3.1"
+services:
+  vault:
+    build: .
+    environment:
+      - "VAULT_ADDR=https://127.0.0.1:8200"
+      - "AWS_ACCESS_KEY_ID=<your AWS access key ID>"
+      - "AWS_SECRET_ACCESS_KEY=<your AWS secret key>"
+      - "AWS_REGION=<desired region>"
+      - "DYNAMO_DB_TABLE=<Dynamo DB table name>"
+      - "SSL_CERT_PATH=<Path to SSL cert inside the container>"
+      - "SSL_KEY_PATH=<Path to SSL key inside the container>"
+    cap_add:
+      - IPC_LOCK
+    volumes:
+      - certstore:/certstore
+    ports:
+      - 8200:8200
+
+volumes:
+  certstore:
+    external: true
