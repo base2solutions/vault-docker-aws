@@ -1,0 +1,17 @@
+disable_mlock = false
+max_lease_ttl = "720h"
+default_lease_ttl = "168h"
+
+backend "dynamodb" {
+  access_key = "${AWS_ACCESS_KEY_ID}"
+  secret_key = "${AWS_SECRET_ACCESS_KEY}"
+  region = "${AWS_REGION}"
+  table = "${DYNAMO_DB_TABLE}"
+  ha_enabled = "false"
+}
+
+listener "tcp" {
+  address = "0.0.0.0:8200"
+  tls_cert_file = "${SSL_CERT_PATH}"
+  tls_key_file = "${SSL_KEY_PATH}"
+}
