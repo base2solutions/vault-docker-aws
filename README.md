@@ -29,12 +29,12 @@ Fill in the required parameters in the vault.yml docker compose file as necessar
 
 ```
 - "VAULT_ADDR=https://127.0.0.1:8200"
-- "AWS_ACCESS_KEY_ID=AKIAJA2LYMYVQXWGCHTA"
-- "AWS_SECRET_ACCESS_KEY=kjSqnDDC3idUrNH8G7DwUFqLmtw6nFu+Z6jCkDZX"
+- "AWS_ACCESS_KEY_ID=YOURKEYID"
+- "AWS_SECRET_ACCESS_KEY=YOURKEYSECRET"
 - "AWS_REGION=us-west-2"
 - "DYNAMO_DB_TABLE=vault-test"
-- "SSL_CERT_PATH=/certstore/letsencrypt/live/vault.base2d.com/fullchain.pem"
-- "SSL_KEY_PATH=/certstore/letsencrypt/live/vault.base2d.com/privkey.pem"
+- "SSL_CERT_PATH=/path/to/your/cert.pem"
+- "SSL_KEY_PATH=/path/to/your/key.pem"
 ```
 ##### VAULT_ADDR
 This is the address at which vault listens for incoming requests. Typically should be set to `https://127.0.0.1:8200` as configured in this example for running inside a container.
